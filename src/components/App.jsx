@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { nanoid } from 'nanoid'
+import Notiflix from 'notiflix'
 import { ContactsForm } from './ContactsForm/ContactsForm'
 import { ContactsBook } from './ContactsBook/ContactsBook'
 import { Filter } from './Filter/Filter'
@@ -13,11 +14,15 @@ export default class App extends Component {
       {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
     ],
     filter: '',
-    name: '',
-    number: ''
   }
 
   onAddContacts = (values, helpers) => {
+    if (this.state.contacts.some(contact => contact.name === values.name)) {
+      Notiflix.Notify.failure('This person already exists');
+      helpers.resetForm();
+      return;
+    }
+
     const contact = {
       id: nanoid(),
       name: values.name,
