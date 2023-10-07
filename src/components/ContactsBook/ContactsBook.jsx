@@ -1,9 +1,15 @@
-export const ContactsBook = ({ contacts }) => {
+import { Contact } from "components/Contact/Contact";
+
+export const ContactsBook = ({ contacts, onDeleteContact }) => {
   return (
     <div>
       <ul>
-        {contacts.map(({ id, name, number }) =>
-          <li key={id}>{name}: {number}</li>)}
+        {contacts.map(contact =>
+          <Contact
+            key={contact.id}
+            contact={contact}
+            onDeleteContact={onDeleteContact}
+          />)}
       </ul>
     </div>
   );

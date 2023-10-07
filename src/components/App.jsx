@@ -40,6 +40,12 @@ export default class App extends Component {
     this.setState({ filter: e.target.value });
   }
 
+  onDeleteContact = (id) => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id)
+    }))
+  }
+
   getContacts = () => {
     const { contacts, filter } = this.state;
     const normalizedFilter = filter.toLowerCase();
@@ -61,8 +67,7 @@ export default class App extends Component {
         <Filter filter={filter} onInputFilter={this.onInputFilter} />
         <ContactsBook
           contacts={this.getContacts()}
-          filter={filter}
-          onInputFilter={this.onInputFilter}
+          onDeleteContact={this.onDeleteContact}
         />
       </div>
     )
