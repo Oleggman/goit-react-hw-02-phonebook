@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'components/GlobalStyle';
 
 const theme = {
-
+  
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
