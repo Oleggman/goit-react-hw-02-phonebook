@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { nanoid } from 'nanoid'
 import { ContactsForm } from './ContactsForm/ContactsForm'
 import { ContactsBook } from './ContactsBook/ContactsBook'
+import { Filter } from './Filter/Filter'
 
 export default class App extends Component {
   state = {
@@ -44,11 +45,15 @@ export default class App extends Component {
   }
 
   render() {
-    const { contacts, filter } = this.state;
+    const { filter } = this.state;
     
     return (
       <div>
+        <h1>Phonebook</h1>
         <ContactsForm onSubmitForm={this.onAddContacts} />
+
+        <h2>Contacts</h2>
+        <Filter filter={filter} onInputFilter={this.onInputFilter} />
         <ContactsBook
           contacts={this.getContacts()}
           filter={filter}
