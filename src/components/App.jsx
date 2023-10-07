@@ -5,7 +5,7 @@ import { RiContactsBook2Fill } from 'react-icons/ri';
 import { ContactsForm } from './ContactsForm/ContactsForm'
 import { ContactsBook } from './ContactsBook/ContactsBook'
 import { Filter } from './Filter/Filter'
-import { MainContainer, AppTitle } from './App.styled';
+import { MainContainer, AppTitle, ContactsList, ContactsTitle } from './App.styled';
 export default class App extends Component {
   state = {
     contacts: [
@@ -66,14 +66,14 @@ export default class App extends Component {
         <MainContainer>
           <ContactsForm onSubmitForm={this.onAddContacts} />
 
-          <div>
-            <h2>Contacts</h2>
+          <ContactsList>
+            <ContactsTitle>Contacts</ContactsTitle>
             <Filter filter={filter} onInputFilter={this.onInputFilter} />
             <ContactsBook
               contacts={this.getContacts()}
               onDeleteContact={this.onDeleteContact}
             />
-          </div>
+          </ContactsList>
         </MainContainer>
       </div>
     )

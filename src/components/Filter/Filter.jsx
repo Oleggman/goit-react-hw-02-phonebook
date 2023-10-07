@@ -1,8 +1,10 @@
+import { InputFilter, FilterTitle, FilterBox } from "./Filter.styled";
+
 export const Filter = ({ filter, onInputFilter }) => {
   return (
-    <div>
-      <p>Find contacts by name</p>
-      <input type="text" value={filter} onChange={onInputFilter} />
-    </div>
+    <FilterBox>
+      <FilterTitle>Find contacts by name</FilterTitle>
+      <InputFilter placeholder="Filter..." type="text" value={filter} onChange={onInputFilter} />
+    </FilterBox>
   );
 }
