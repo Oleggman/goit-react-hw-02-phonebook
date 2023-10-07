@@ -1,8 +1,10 @@
-export const Contact = ({ contact: { id, name, number}, onDeleteContact }) => {
+import { ContactItem, DeleteBtn } from "./Contact.styled";
+
+export const Contact = ({ contact: { id, name, number }, onDeleteContact }) => {
   return (
-    <li>
+    <ContactItem>
       <p>{name}: {number}</p>
-      <button type="button" onClick={() => onDeleteContact(id)}>Delete</button>
-    </li>
+      <DeleteBtn type="button" onClick={() => onDeleteContact(id)}>Delete</DeleteBtn>
+    </ContactItem>
   );
 }

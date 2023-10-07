@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FilterBox = styled.div`
   width: fit-content;
-  margin: 0 auto;
+  margin: 0 auto 20px;
 `;
 
 export const InputFilter = styled.input`
